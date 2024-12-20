@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* 이미지의 상대 위치를 설정 */
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* 도형 영역 스타일 */
+        .shape {
+            position: absolute;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        /* 사각형 영역 */
+        .rectangle {
+            background-color: rgba(255, 0, 0, 0); /* 빨간색 + 투명도 50% */
+            top: 630px;
+            left: 150px;
+            width: 190px;
+            height: 150px;
+        }
+    
+        
+        /* 원형 영역 */
+        .circle {
+            background-color: rgba(0, 0, 255, 0); /* 파란색 + 투명도 50% */
+            top: 620px;
+            left: 750px;
+            width: 200px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        /* 다각형 영역 */
+        .triangle {
+            background-color: rgba(255, 255, 0, 0.5); /* 노란색 + 투명도 50% */
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 620x;
+            left: 250px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .ellipse {
+            background-color: rgba(255, 165, 0, 0.5); /* 주황색 + 투명도 50% */
+            top: 620px;
+            left: 500px;
+            width: 150px;
+            height: 100px;
+            border-radius: 50%;
+    </style>
+</head>
+<body>
+
+
+
+    <!-- 이미지와 도형을 포함한 컨테이너 -->
+    <div class="image-container">
+        <img src="원자숙 운세 알려줄까 말까.jpg" alt="Clickable Image" width="1400" height="900">
+
+        <!-- 각 도형 영역을 클릭 가능한 div로 추가 -->
+        <div class="shape rectangle" onclick="goRandomPage('rectangle')"></div>
+        <div class="shape circle" onclick="goRandomPage('circle')"></div>
+        <div class="shape polygon" onclick="goRandomPage('polygon')"></div>
+    </div>
+
+    <script>
+        // 각 도형에 대해 랜덤 이미지 목록 정의
+        const images = {
+            triangle: [
+                "100년 운세1",
+                "100년 운세2"
+            ],
+            rectangle: [
+                "운세점수1.jpg",
+                "운세점수2.jpg",
+                "운세점수3.jpg"
+        
+            ],
+            circle: [
+                "행운1.jpg",
+                "행운2.jpg",
+            
+            ],
+            ellipse: [
+                "불행1.jpg",
+                "불행2.jpg",
+        
+            ]
+        };
+
+        // 클릭한 도형에 따라 랜덤 이미지로 이동
+        function goRandomPage(shape) {
+            // 해당 도형에 대한 이미지 목록을 가져옴
+            const pageList = images[shape];
+
+            // 랜덤으로 페이지 선택
+            const randomIndex = Math.floor(Math.random() * pageList.length);
+
+            // 선택된 이미지로 이동
+            window.location.href = pageList[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
+
+
